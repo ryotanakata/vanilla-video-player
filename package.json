@@ -1,0 +1,21 @@
+{
+  "name": "vanilla-video-player",
+  "version": "1.0.0",
+  "scripts": {
+    "sass": "sass css:css --watch",
+    "format": "prettier --write '**/*.{js,scss,html}'",
+    "format:watch": "chokidar \"**/*.{js,scss,html}\" -i 'node_modules/**' -c \"prettier --write {path}\"",
+    "serve": "live-server --port=3000 --quiet",
+    "dev": "npm-run-all --parallel sass format:watch serve"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "sass": "^1.71.1",
+    "chokidar-cli": "^3.0.0"
+  },
+  "overrides": {
+    "braces": "^3.0.3"
+  }
+}

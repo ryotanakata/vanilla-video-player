@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla Video Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:wght@100..900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="video">
+      <div>
+        <section class="video-content">
+          <div class="--video">
+            <video
+              src="./video/ちゃんみな - SAD SONG feat. No No Girls FINALISTS ⧸ THE FIRST TAKE.mp4"
+              playsinline
+              data-dom="video"
+            ></video>
+          </div>
+          <div>
+            <div>
+              <div class="--metadata">
+                <h1 data-dom="title"></h1>
+              </div>
+              <div class="--settings-top">
+                <label>
+                  <select data-dom="speedSelect" aria-label="再生速度">
+                    <option value="0.25">x 0.25</option>
+                    <option value="0.5">x 0.5</option>
+                    <option value="0.75">x 0.75</option>
+                    <option value="1" selected>x 1</option>
+                    <option value="1.25">x 1.25</option>
+                    <option value="1.5">x 1.5</option>
+                    <option value="1.75">x 1.75</option>
+                    <option value="2">x 2</option>
+                  </select>
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    data-dom="repeatCheckbox"
+                    aria-label="リピート再生オフ"
+                  />
+                  <span class="material-icons-round">repeat</span>
+                </label>
+                <label>
+                  <input
+                    data-dom="volumeRange"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="0.5"
+                    aria-label="音量"
+                  />
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    data-dom="muteCheckbox"
+                    aria-label="ミュート解除"
+                    checked
+                  />
+                  <span class="material-icons-round">volume_up</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="--playback">
+                <button data-dom="rewindButton">
+                  <span class="material-icons-round">replay_10</span>
+                </button>
+                <button
+                  data-dom="playPauseButton"
+                  aria-label="再生"
+                  aria-pressed="false"
+                >
+                  <span class="material-icons-round">play_arrow</span>
+                </button>
+                <button data-dom="forwardButton">
+                  <span class="material-icons-round">forward_10</span>
+                </button>
+              </div>
+            </div>
+            <div>
+              <div class="--progress">
+                <div>
+                  <div>
+                    <video data-dom="previewCapture" muted></video>
+                    <span data-dom="previewTime">00:00</span>
+                  </div>
+                  <input
+                    data-dom="progressRange"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    value="0"
+                    aria-label="進行状況"
+                  />
+                </div>
+                <p>
+                  <span data-dom="currentTimeSpan">00:00</span>
+                  <span>/</span>
+                  <span data-dom="durationSpan">00:00</span>
+                </p>
+              </div>
+              <div class="--settings-bottom">
+                <button data-dom="fullScreenButton">
+                  <span class="material-icons-round">fullscreen</span>
+                </button>
+                <button data-dom="pictureInPictureButton">
+                  <span class="material-icons-round">picture_in_picture</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
