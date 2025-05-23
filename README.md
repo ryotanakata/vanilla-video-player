@@ -1,6 +1,6 @@
 # Vanilla Video Player
 
-![Screenshot of custom video player UI](https://github.com/ryotanakata/vanilla-video-player/raw/master/doc/assets/image.png)
+![Screenshot of custom video player UI](https://github.com/ryotanakata/vanilla-video-player/raw/master/screenshot.png)
 
 Vanilla JS player UI with thumbnail preview
 
