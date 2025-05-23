@@ -1,4 +1,6 @@
-# Vanilla Video Player – Detailed Feature List
+# Vanilla Video Player
+
+![vanilla video player image](https://github.com/ryotanakata/vanilla-video-player/raw/master/doc/assets/image.png)
 
 | Feature                      | Control (UI)         | Shortcut               |
 | ---------------------------- | -------------------- | ---------------------- |
@@ -13,7 +15,7 @@
 | **Repeat‑One**               | Repeat icon          | **L**                  |
 | **Speed Up**                 | Speed dropdown       | **]**                  |
 | **Speed Down**               | Speed dropdown       | **[**                  |
-| **Seek Bar + Thumbnail**     | Seek bar hover       | Hover / Touch          |
+| **Seek Bar + Capture**       | Seek bar hover       | Hover / Touch          |
 | **Keyboard‑only Navigation** | Focusable controls   | **Tab**, **Shift+Tab** |
 
 ---
@@ -31,5 +33,5 @@
 | **リピート再生**            | リピートアイコン       | **L**                  |
 | **再生速度上げる**          | 速度ドロップダウン     | **]**                  |
 | **再生速度下げる**          | 速度ドロップダウン     | **[**                  |
-| **シークバー + サムネイル** | シークバーをホバー     | ホバー / タッチ        |
+| **シークバー + キャプチャ** | シークバーをホバー     | ホバー / タッチ        |
 | **キーボード操作対応**      | フォーカス可能な各操作 | **Tab**, **Shift+Tab** |
