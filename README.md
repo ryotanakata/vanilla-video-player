@@ -4,7 +4,7 @@
 
 Vanilla JS player UI with thumbnail preview
 
-### Feature
+## Feature
 
 | Feature                      | Control (UI)         | Shortcut               |
 | ---------------------------- | -------------------- | ---------------------- |
@@ -22,7 +22,7 @@ Vanilla JS player UI with thumbnail preview
 | **Seek Bar + Capture**       | Seek bar hover       | Hover / Touch          |
 | **Keyboard‑only Navigation** | Focusable controls   | **Tab**, **Shift+Tab** |
 
-### 機能
+## 機能
 
 | 機能                        | 操作 (UI)              | ショートカット         |
 | --------------------------- | ---------------------- | ---------------------- |
