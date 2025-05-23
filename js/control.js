@@ -111,7 +111,6 @@ const toggleRepeatUnrepeat = (e) => {
     repeatCheckbox.nextElementSibling.textContent = repeatCheckbox.checked
       ? "repeat_one"
       : "repeat";
-
     repeatCheckbox.setAttribute(
       "aria-label",
       repeatCheckbox.checked ? "リピート再生オン" : "リピート再生オフ"
@@ -196,7 +195,6 @@ const downSpeedVideo = () => {
       video: "ビデオ要素",
       speedSelect: "再生速度セレクトボックス",
     });
-
     const currentIndex = [...speedSelect.options].findIndex(
       (option) => parseFloat(option.value) === video.playbackRate
     );
