@@ -1,6 +1,10 @@
 # Vanilla Video Player
 
-![vanilla video player image](https://github.com/ryotanakata/vanilla-video-player/raw/master/doc/assets/image.png)
+![Screenshot of custom video player UI](https://github.com/ryotanakata/vanilla-video-player/raw/master/doc/assets/image.png)
+
+Vanilla JS player UI with thumbnail preview
+
+### Feature
 
 | Feature                      | Control (UI)         | Shortcut               |
 | ---------------------------- | -------------------- | ---------------------- |
@@ -18,7 +22,7 @@
 | **Seek Bar + Capture**       | Seek bar hover       | Hover / Touch          |
 | **Keyboard‑only Navigation** | Focusable controls   | **Tab**, **Shift+Tab** |
 
----
+### 機能
 
 | 機能                        | 操作 (UI)              | ショートカット         |
 | --------------------------- | ---------------------- | ---------------------- |
