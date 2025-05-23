@@ -263,7 +263,7 @@ const controlProgress = ({ target }) => {
 };
 
 // プレビューキャプチャを更新する関数
-const showPreviewCapture = (event) => {
+const showPreviewCapture = (e) => {
   try {
     const { video, previewCapture, previewTime, progressRange } = getDataDom({
       video: "ビデオ要素",
@@ -271,9 +271,8 @@ const showPreviewCapture = (event) => {
       previewTime: "プレビュー時間",
       progressRange: "進行状況レンジ",
     });
-
     const rect = progressRange.getBoundingClientRect();
-    const progress = ((event.clientX - rect.left) / rect.width) * 100;
+    const progress = ((e.clientX - rect.left) / rect.width) * 100;
     const time = (video.duration * progress) / 100;
 
     previewTime.textContent = formatTime(time);
