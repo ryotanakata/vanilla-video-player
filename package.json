@@ -8,6 +8,16 @@
     "serve": "live-server --port=3000 --quiet",
     "dev": "npm-run-all --parallel sass format:watch serve"
   },
+  "keywords": [
+    "video",
+    "player",
+    "vanilla",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "ryotanakata",
+  "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2",
     "npm-run-all": "^4.1.5",
