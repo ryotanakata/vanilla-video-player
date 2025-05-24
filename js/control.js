@@ -75,48 +75,27 @@ const forwardVideo = () => {
   }
 };
 
-// ミュートチェックボックスのトグル
+// ビデオのミュート/ミュート解除をトグルする関数
 const toggleMuteUnmute = () => {
   try {
-    const { video, muteCheckbox } = getDataDom({
-      video: "ビデオ要素",
-      muteCheckbox: "ミュートチェックボックス",
-    });
+    const { video } = getDataDom({ video: "ビデオ要素" });
 
     video.muted = !video.muted;
-    muteCheckbox.checked = !video.muted;
-    muteCheckbox.setAttribute(
-      "aria-label",
-      video.muted ? "ミュート解除" : "ミュート"
-    );
-    muteCheckbox.nextElementSibling.textContent = video.muted
-      ? "volume_off"
-      : "volume_up";
+    video.dispatchEvent(new Event("mutedchange"));
   } catch (error) {
-    console.error("ビデオのミュートエラー:", error);
+    console.error("ミュート/ミュート解除エラー:", error);
   }
 };
 
-// リピート再生チェックボックスのトグル
-const toggleRepeatUnrepeat = (e) => {
+// ビデオのループ再生オン/オフをトグルする関数
+const toggleLoopUnloop = () => {
   try {
-    const { repeatCheckbox } = getDataDom({
-      repeatCheckbox: "リピート再生チェックボックス",
-    });
+    const { video } = getDataDom({ video: "ビデオ要素" });
 
-    if (!e) {
-      repeatCheckbox.checked = !repeatCheckbox.checked;
-    }
-
-    repeatCheckbox.nextElementSibling.textContent = repeatCheckbox.checked
-      ? "repeat_one"
-      : "repeat";
-    repeatCheckbox.setAttribute(
-      "aria-label",
-      repeatCheckbox.checked ? "リピート再生オン" : "リピート再生オフ"
-    );
+    video.loop = !video.loop;
+    video.dispatchEvent(new Event("loopchange"));
   } catch (error) {
-    console.error("リピート再生エラー:", error);
+    console.error("ビデオの再生/一時停止エラー:", error);
   }
 };
 
