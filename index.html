@@ -47,12 +47,14 @@
                   </select>
                 </label>
                 <label>
-                  <input
-                    type="checkbox"
-                    data-dom="repeatCheckbox"
+                  <button
+                    type="button"
+                    data-dom="loopButton"
                     aria-label="リピート再生オフ"
-                  />
-                  <span class="material-icons-round">repeat</span>
+                    aria-pressed="false"
+                  >
+                    <span class="material-icons-round">repeat</span>
+                  </button>
                 </label>
                 <label>
                   <input
@@ -66,13 +68,14 @@
                   />
                 </label>
                 <label>
-                  <input
-                    type="checkbox"
-                    data-dom="muteCheckbox"
+                  <button
+                    type="button"
+                    data-dom="muteButton"
                     aria-label="ミュート解除"
-                    checked
-                  />
-                  <span class="material-icons-round">volume_up</span>
+                    aria-pressed="false"
+                  >
+                    <span class="material-icons-round">volume_up</span>
+                  </button>
                 </label>
               </div>
             </div>
