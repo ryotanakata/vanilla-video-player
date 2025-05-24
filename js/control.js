@@ -367,16 +367,11 @@ const updatePlayPauseState = () => {
   }
 };
 
-// 音量調節レンジを更新する関数
+// 音量調節レンジの状態を更新する関数
 const updateVolumeRange = () => {
   try {
-    const { video, volumeRange, muteCheckbox } = getDataDom({
-      video: "ビデオ要素",
-      volumeRange: "音量調節レンジ",
-      muteCheckbox: "ミュートチェックボックス",
-    });
+    const { volumeRange } = getDataDom({ volumeRange: "音量調節レンジ" });
 
-    volumeRange.value = muteCheckbox.checked ? video.volume : 0;
     volumeRange.style.setProperty("--volume", `${volumeRange.value * 100}%`);
   } catch (error) {
     console.error("音量調節レンジの更新エラー:", error);
