@@ -378,6 +378,48 @@ const updateVolumeRange = () => {
   }
 };
 
+// ビデオのループ状態をボタンに反映する関数
+const updateLoopUnloopState = () => {
+  try {
+    const { video, loopButton } = getDataDom({
+      video: "ビデオ要素",
+      loopButton: "ループ再生ボタン",
+    });
+
+    loopButton.setAttribute(
+      "aria-label",
+      video.loop ? "ループ再生オフ" : "ループ再生オン"
+    );
+    loopButton.setAttribute("aria-pressed", video.loop ? "true" : "false");
+    loopButton.querySelector("span").textContent = video.loop
+      ? "repeat_one"
+      : "repeat";
+  } catch {
+    console.error("ループ再生オン/オフの更新エラー:", error);
+  }
+};
+
+// ビデオのミュート状態をボタンに反映する関数
+const updateMuteUnmuteState = () => {
+  try {
+    const { video, muteButton } = getDataDom({
+      video: "ビデオ要素",
+      muteButton: "ミュートボタン",
+    });
+
+    muteButton.setAttribute(
+      "aria-label",
+      video.muted ? "ミュート解除" : "ミュート"
+    );
+    muteButton.setAttribute("aria-pressed", video.muted ? "true" : "false");
+    muteButton.querySelector("span").textContent = video.muted
+      ? "volume_off"
+      : "volume_up";
+  } catch {
+    console.error("ミュート/ミュート解除の更新エラー:", error);
+  }
+};
+
 export {
   getVideoTitle,
   playVideo,
