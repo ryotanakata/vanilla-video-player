@@ -343,7 +343,7 @@ const updateProgressTime = () => {
   }
 };
 
-// ビデオの再生状態を更新する関数
+// ビデオの再生状態をボタンに反映する関数
 const updatePlayPauseState = () => {
   try {
     const { video, playPauseButton } = getDataDom({
