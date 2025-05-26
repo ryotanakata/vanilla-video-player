@@ -333,29 +333,26 @@ body {
   height: 25px;
   font-size: clamp(18px, 18px + 0.0112 * (100vw - 375px), 25px);
 }
+.video-content button[data-dom=loopButton] span {
+  font-size: clamp(14px, 14px + 0.0176 * (100vw - 375px), 25px);
+}
+.video-content button[data-dom=loopButton][aria-pressed=true] span {
+  opacity: 1;
+}
+.video-content button[data-dom=loopButton][aria-pressed=false] span {
+  opacity: 0.5;
+}
+.video-content button[data-dom=muteButton] span {
+  font-size: clamp(14px, 14px + 0.0176 * (100vw - 375px), 25px);
+}
+.video-content button[data-dom=muteButton][aria-pressed=true] span {
+  opacity: 0.5;
+}
+.video-content button[data-dom=muteButton][aria-pressed=false] span {
+  opacity: 1;
+}
 .video-content label {
   cursor: pointer;
-}
-.video-content label span {
-  font-size: inherit;
-  color: var(--color-white);
-}
-.video-content label:has(input[data-dom=repeatCheckbox]) span {
-  font-size: clamp(14px, 14px + 0.0176 * (100vw - 375px), 25px);
-  opacity: 0.5;
-}
-.video-content label:has(input[data-dom=repeatCheckbox]:checked) span {
-  opacity: 1;
-}
-.video-content label:has(input[data-dom=muteCheckbox]) span {
-  font-size: clamp(14px, 14px + 0.0176 * (100vw - 375px), 25px);
-  opacity: 0.5;
-}
-.video-content label:has(input[data-dom=muteCheckbox]:checked) span {
-  opacity: 1;
-}
-.video-content label:has(input[data-dom=volumeRange]) span {
-  font-size: clamp(16px, 16px + 0.0144 * (100vw - 375px), 25px);
 }
 .video-content select[data-dom=speedSelect] {
   font-size: 16px;
@@ -373,18 +370,6 @@ body {
   .video-content select[data-dom=speedSelect] {
     transform: scale(0.8);
   }
-}
-.video-content input[data-dom=repeatCheckbox], .video-content input[data-dom=muteCheckbox] {
-  border: 0 !important;
-  clip: rect(0 0 0 0) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  white-space: nowrap !important;
-  width: 1px !important;
 }
 .video-content input[data-dom=volumeRange], .video-content input[data-dom=progressRange] {
   display: block;
@@ -424,6 +409,9 @@ body {
 .video-content input[data-dom=volumeRange] {
   width: 80px;
   background-image: linear-gradient(to right, var(--color-white) 0%, var(--color-white) var(--volume, 50%), transparent var(--volume, 50%));
+}
+.video-content input[data-dom=volumeRange] span {
+  font-size: clamp(16px, 16px + 0.0144 * (100vw - 375px), 25px);
 }
 .video-content input[data-dom=progressRange] {
   width: 100%;
