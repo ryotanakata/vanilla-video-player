@@ -192,7 +192,6 @@ const controlVolume = ({ target }) => {
     const volume = target.value;
 
     video.volume = volume;
-    target.style.setProperty("--volume", `${volume * 100}%`);
   } catch (error) {
     console.error("ビデオの音量を制御エラー:", error);
   }
