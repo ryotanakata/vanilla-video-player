@@ -8,7 +8,6 @@ import {
   toggleLoopUnloop,
   fullScreenVideo,
   pictureInPictureVideo,
-  repeatVideo,
   changeSpeedVideo,
   upSpeedVideo,
   downSpeedVideo,
@@ -74,9 +73,6 @@ try {
   title.textContent = getVideoTitle(video.src);
   video.addEventListener("loadedmetadata", updateDurationTime, { once: true });
   video.readyState >= HTMLMediaElement.HAVE_METADATA && updateDurationTime();
-
-  // 再生制御
-  video.addEventListener("ended", repeatVideo);
 
   // 再生状態の更新
   video.addEventListener("timeupdate", updateProgressBar);
