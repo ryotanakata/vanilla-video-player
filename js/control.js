@@ -1,5 +1,9 @@
 import { getDataDom } from "https://cdn.jsdelivr.net/npm/@datadomjs/datadom@1.0.2/dist/index.js";
 
+// ----------------------------------------------------------
+// ユーティリティ関数
+// ----------------------------------------------------------
+
 // ビデオのタイトルを取得する関数
 const getVideoTitle = (url) => {
   const filename = decodeURIComponent(url.split("/").pop());
@@ -17,27 +21,9 @@ const formatTime = (time) => {
     .padStart(2, "0")}`;
 };
 
-// ビデオを再生する関数
-const playVideo = async () => {
-  try {
-    const { video } = getDataDom({ video: "ビデオ要素" });
-
-    await video.play();
-  } catch (error) {
-    console.error("ビデオの再生エラー:", error);
-  }
-};
-
-// ビデオを一時停止する関数
-const pauseVideo = () => {
-  try {
-    const { video } = getDataDom({ video: "ビデオ要素" });
-
-    video.pause();
-  } catch (error) {
-    console.error("ビデオの一時停止エラー:", error);
-  }
-};
+// ----------------------------------------------------------
+// 基本的なビデオ操作
+// ----------------------------------------------------------
 
 // ビデオの再生状態をトグルする関数
 const togglePlayPause = async () => {
@@ -99,6 +85,10 @@ const toggleLoopUnloop = () => {
   }
 };
 
+// ----------------------------------------------------------
+// ビデオ操作オプション
+// ----------------------------------------------------------
+
 // ビデオを全画面表示にする関数
 const fullScreenVideo = async () => {
   try {
@@ -110,6 +100,7 @@ const fullScreenVideo = async () => {
   }
 };
 
+// ピクチャーインピクチャーを有効にする関数
 const pictureInPictureVideo = async () => {
   try {
     if (!document.pictureInPictureEnabled) return;
@@ -121,6 +112,7 @@ const pictureInPictureVideo = async () => {
     console.error("ピクチャーインピクチャー要求エラー:", error);
   }
 };
+
 // ビデオをリピート再生する関数
 const repeatVideo = () => {
   try {
@@ -130,13 +122,16 @@ const repeatVideo = () => {
     });
 
     if (!repeatCheckbox.checked) return;
-
     video.currentTime = 0;
     video.play();
   } catch (error) {
     console.error("ビデオのリピート再生エラー:", error);
   }
 };
+
+// ----------------------------------------------------------
+// 再生速度制御
+// ----------------------------------------------------------
 
 // ビデオの再生速度を変更する関数
 const changeSpeedVideo = ({ target }) => {
@@ -160,7 +155,6 @@ const upSpeedVideo = () => {
       (option) => parseFloat(option.value) === video.playbackRate
     );
     const newIndex = Math.min(currentIndex + 1, speedSelect.options.length - 1);
-
     video.playbackRate = parseFloat(speedSelect.options[newIndex].value);
   } catch (error) {
     console.error("ビデオの再生速度上昇エラー:", error);
@@ -178,20 +172,22 @@ const downSpeedVideo = () => {
       (option) => parseFloat(option.value) === video.playbackRate
     );
     const newIndex = Math.max(currentIndex - 1, 0);
-
     video.playbackRate = parseFloat(speedSelect.options[newIndex].value);
   } catch (error) {
     console.error("ビデオの再生速度下降エラー:", error);
   }
 };
 
+// ----------------------------------------------------------
+// 音量制御
+// ----------------------------------------------------------
+
 // ビデオの音量を制御する関数
-const controlVolume = ({ target }) => {
+const changeVolume = ({ target }) => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
-    const volume = target.value;
 
-    video.volume = volume;
+    video.volume = target.value;
   } catch (error) {
     console.error("ビデオの音量を制御エラー:", error);
   }
@@ -227,8 +223,12 @@ const downVolume = () => {
   }
 };
 
+// ----------------------------------------------------------
+// 進行状況制御
+// ----------------------------------------------------------
+
 // ビデオの進行状況を制御する関数
-const controlProgress = ({ target }) => {
+const changeProgress = ({ target }) => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
     const progress = target.value;
@@ -277,6 +277,10 @@ const hidePreviewCapture = () => {
     console.error("プレビューキャプチャの非表示エラー:", error);
   }
 };
+
+// ----------------------------------------------------------
+// 状態更新関数
+// ----------------------------------------------------------
 
 // 再生速度のセレクトボックスを更新する関数
 const updateSpeedSelect = () => {
@@ -397,7 +401,7 @@ const updateLoopUnloopState = () => {
     loopButton.querySelector("span").textContent = video.loop
       ? "repeat_one"
       : "repeat";
-  } catch {
+  } catch (error) {
     console.error("ループ再生オン/オフの更新エラー:", error);
   }
 };
@@ -418,30 +422,30 @@ const updateMuteUnmuteState = () => {
     muteButton.querySelector("span").textContent = video.muted
       ? "volume_off"
       : "volume_up";
-  } catch {
+  } catch (error) {
     console.error("ミュート/ミュート解除の更新エラー:", error);
   }
 };
 
 export {
   getVideoTitle,
-  playVideo,
-  pauseVideo,
   togglePlayPause,
   rewindVideo,
   forwardVideo,
-  toggleLoopUnloop,
   toggleMuteUnmute,
+  toggleLoopUnloop,
   fullScreenVideo,
   pictureInPictureVideo,
   repeatVideo,
   changeSpeedVideo,
   upSpeedVideo,
   downSpeedVideo,
-  controlVolume,
+  changeVolume,
   upVolume,
   downVolume,
-  controlProgress,
+  changeProgress,
+  showPreviewCapture,
+  hidePreviewCapture,
   updateSpeedSelect,
   updateProgressBar,
   updateDurationTime,
@@ -450,6 +454,4 @@ export {
   updateVolumeRange,
   updateLoopUnloopState,
   updateMuteUnmuteState,
-  showPreviewCapture,
-  hidePreviewCapture,
 };
