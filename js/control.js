@@ -427,8 +427,8 @@ export {
   togglePlayPause,
   rewindVideo,
   forwardVideo,
+  toggleLoopUnloop,
   toggleMuteUnmute,
-  toggleRepeatUnrepeat,
   fullScreenVideo,
   pictureInPictureVideo,
   repeatVideo,
@@ -445,6 +445,8 @@ export {
   updateProgressTime,
   updatePlayPauseState,
   updateVolumeRange,
+  updateLoopUnloopState,
+  updateMuteUnmuteState,
   showPreviewCapture,
   hidePreviewCapture,
 };

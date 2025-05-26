@@ -3,8 +3,8 @@ import {
   getVideoTitle,
   togglePlayPause,
   rewindVideo,
+  toggleLoopUnloop,
   toggleMuteUnmute,
-  toggleRepeatUnrepeat,
   forwardVideo,
   fullScreenVideo,
   pictureInPictureVideo,
@@ -22,6 +22,8 @@ import {
   updateDurationTime,
   updatePlayPauseState,
   updateVolumeRange,
+  updateLoopUnloopState,
+  updateMuteUnmuteState,
   showPreviewCapture,
   hidePreviewCapture,
 } from "./control.js";
@@ -82,14 +84,16 @@ try {
   video.addEventListener("play", updatePlayPauseState);
   video.addEventListener("pause", updatePlayPauseState);
   video.addEventListener("volumechange", updateVolumeRange);
+  video.addEventListener("mutedchange", updateMuteUnmuteState);
+  video.addEventListener("loopchange", updateLoopUnloopState);
   video.addEventListener("ratechange", updateSpeedSelect);
 
   // ユーザー操作
   playPauseButton.addEventListener("click", togglePlayPause);
   rewindButton.addEventListener("click", rewindVideo);
   forwardButton.addEventListener("click", forwardVideo);
-  muteCheckbox.addEventListener("change", toggleMuteUnmute);
-  repeatCheckbox.addEventListener("change", toggleRepeatUnrepeat);
+  muteButton.addEventListener("click", toggleMuteUnmute);
+  loopButton.addEventListener("click", toggleLoopUnloop);
   fullScreenButton.addEventListener("click", fullScreenVideo);
   pictureInPictureButton.addEventListener("click", pictureInPictureVideo);
   speedSelect.addEventListener("change", changeSpeedVideo);
@@ -110,7 +114,7 @@ try {
     if (e.key === " ") togglePlayPause();
     if (e.key === "f") fullScreenVideo();
     if (e.key === "p") pictureInPictureVideo();
-    if (e.key === "l") toggleRepeatUnrepeat();
+    if (e.key === "l") toggleLoopUnloop();
     if (e.key === "m") toggleMuteUnmute();
   });
 } catch (error) {
