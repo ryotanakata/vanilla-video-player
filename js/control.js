@@ -113,22 +113,6 @@ const pictureInPictureVideo = async () => {
   }
 };
 
-// ビデオをリピート再生する関数
-const repeatVideo = () => {
-  try {
-    const { video, repeatCheckbox } = getDataDom({
-      video: "ビデオ要素",
-      repeatCheckbox: "リピート再生チェックボックス",
-    });
-
-    if (!repeatCheckbox.checked) return;
-    video.currentTime = 0;
-    video.play();
-  } catch (error) {
-    console.error("ビデオのリピート再生エラー:", error);
-  }
-};
-
 // ----------------------------------------------------------
 // 再生速度制御
 // ----------------------------------------------------------
@@ -436,7 +420,6 @@ export {
   toggleLoopUnloop,
   fullScreenVideo,
   pictureInPictureVideo,
-  repeatVideo,
   changeSpeedVideo,
   upSpeedVideo,
   downSpeedVideo,
