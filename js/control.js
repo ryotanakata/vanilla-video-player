@@ -203,7 +203,7 @@ const upVolume = () => {
   try {
     const { video, volumeRange } = getDataDom({
       video: "ビデオ要素",
-      volumeRange: "音量調節  レンジ",
+      volumeRange: "音量調節レンジ",
     });
 
     video.volume = Math.min(1, parseFloat(volumeRange.value) + 0.1);
