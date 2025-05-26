@@ -323,7 +323,7 @@ const updateDurationTime = () => {
     const { duration } = video;
 
     durationSpan.textContent = formatTime(duration);
-    durationSpan.setAttribute("aria-valuenow", duration);
+    durationSpan.setAttribute("aria-valuenow", formatTime(duration));
   } catch (error) {
     console.error("ビデオの再生時間更新エラー:", error);
   }
@@ -339,7 +339,7 @@ const updateProgressTime = () => {
     const { currentTime } = video;
 
     currentTimeSpan.textContent = formatTime(currentTime);
-    currentTimeSpan.setAttribute("aria-valuenow", currentTime);
+    currentTimeSpan.setAttribute("aria-valuenow", formatTime(currentTime));
   } catch (error) {
     console.error("ビデオの進行状況更新エラー:", error);
   }
