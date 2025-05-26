@@ -119,9 +119,9 @@ dialog::backdrop {
 }
 :root {
   --color-black: #000000;
-  --color-black-rgb: 0,0,0;
-  --color-white: #FFFFFF;
-  --color-white-rgb: 255,255,255;
+  --color-black-rgb: 0, 0, 0;
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
 }
 
 body {
@@ -353,6 +353,18 @@ body {
 }
 .video-content label {
   cursor: pointer;
+}
+.video-content label > span {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
 }
 .video-content select[data-dom=speedSelect] {
   font-size: 16px;

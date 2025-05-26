@@ -307,6 +307,7 @@ const updateProgressBar = () => {
 
     progressRange.value = progress;
     progressRange.style.setProperty("--progress", `${progress}%`);
+    progressRange.setAttribute("aria-valuenow", progress);
   } catch (error) {
     console.error("ビデオの進行状況更新エラー:", error);
   }
@@ -322,6 +323,7 @@ const updateDurationTime = () => {
     const { duration } = video;
 
     durationSpan.textContent = formatTime(duration);
+    durationSpan.setAttribute("aria-valuenow", duration);
   } catch (error) {
     console.error("ビデオの再生時間更新エラー:", error);
   }
@@ -337,6 +339,7 @@ const updateProgressTime = () => {
     const { currentTime } = video;
 
     currentTimeSpan.textContent = formatTime(currentTime);
+    currentTimeSpan.setAttribute("aria-valuenow", currentTime);
   } catch (error) {
     console.error("ビデオの進行状況更新エラー:", error);
   }
@@ -372,6 +375,7 @@ const updateVolumeRange = () => {
     const { volumeRange } = getDataDom({ volumeRange: "音量調節レンジ" });
 
     volumeRange.style.setProperty("--volume", `${volumeRange.value * 100}%`);
+    volumeRange.setAttribute("aria-valuenow", volumeRange.value);
   } catch (error) {
     console.error("音量調節レンジの更新エラー:", error);
   }
