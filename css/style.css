@@ -147,7 +147,7 @@ body {
   width: min(100%, 1000px);
   margin-inline: auto;
 }
-.video-content:hover > div:not([class]) {
+.video-content:hover > div:not([class]), .video-content:focus-within > div:not([class]) {
   opacity: 1;
 }
 .video-content > div:not([class]) {
