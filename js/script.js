@@ -3,29 +3,29 @@ import {
   getVideoTitle,
   togglePlayPause,
   rewindVideo,
-  toggleLoopUnloop,
-  toggleMuteUnmute,
   forwardVideo,
+  toggleMuteUnmute,
+  toggleLoopUnloop,
   fullScreenVideo,
   pictureInPictureVideo,
   repeatVideo,
   changeSpeedVideo,
   upSpeedVideo,
   downSpeedVideo,
-  controlVolume,
+  changeVolume,
   upVolume,
   downVolume,
-  controlProgress,
+  changeProgress,
+  showPreviewCapture,
+  hidePreviewCapture,
   updateSpeedSelect,
   updateProgressBar,
-  updateProgressTime,
   updateDurationTime,
+  updateProgressTime,
   updatePlayPauseState,
   updateVolumeRange,
   updateLoopUnloopState,
   updateMuteUnmuteState,
-  showPreviewCapture,
-  hidePreviewCapture,
 } from "./control.js";
 
 const elements = {
@@ -75,12 +75,12 @@ try {
   video.addEventListener("loadedmetadata", updateDurationTime, { once: true });
   video.readyState >= HTMLMediaElement.HAVE_METADATA && updateDurationTime();
 
+  // 再生制御
+  video.addEventListener("ended", repeatVideo);
+
   // 再生状態の更新
   video.addEventListener("timeupdate", updateProgressBar);
   video.addEventListener("timeupdate", updateProgressTime);
-
-  // 再生制御
-  video.addEventListener("ended", repeatVideo);
   video.addEventListener("play", updatePlayPauseState);
   video.addEventListener("pause", updatePlayPauseState);
   video.addEventListener("volumechange", updateVolumeRange);
@@ -97,11 +97,11 @@ try {
   fullScreenButton.addEventListener("click", fullScreenVideo);
   pictureInPictureButton.addEventListener("click", pictureInPictureVideo);
   speedSelect.addEventListener("change", changeSpeedVideo);
-  progressRange.addEventListener("input", controlProgress);
-  progressRange.addEventListener("change", controlProgress);
+  progressRange.addEventListener("input", changeProgress);
+  progressRange.addEventListener("change", changeProgress);
   progressRange.addEventListener("mousemove", showPreviewCapture);
   progressRange.addEventListener("mouseleave", hidePreviewCapture);
-  volumeRange.addEventListener("input", controlVolume);
+  volumeRange.addEventListener("input", changeVolume);
 
   // キーボード操作
   document.addEventListener("keydown", (e) => {
