@@ -85,7 +85,7 @@
             </div>
             <div>
               <div class="--playback">
-                <button data-dom="rewindButton">
+                <button data-dom="rewindButton" aria-label="10秒戻る">
                   <span class="material-icons-round" aria-hidden="true">
                     replay_10
                   </span>
@@ -99,7 +99,7 @@
                     play_arrow
                   </span>
                 </button>
-                <button data-dom="forwardButton">
+                <button data-dom="forwardButton" aria-label="10秒進む">
                   <span class="material-icons-round" aria-hidden="true">
                     forward_10
                   </span>
@@ -130,12 +130,15 @@
                 </p>
               </div>
               <div class="--settings-bottom">
-                <button data-dom="fullScreenButton">
+                <button data-dom="fullScreenButton" aria-label="全画面表示">
                   <span class="material-icons-round" aria-hidden="true">
                     fullscreen
                   </span>
                 </button>
-                <button data-dom="pictureInPictureButton">
+                <button
+                  data-dom="pictureInPictureButton"
+                  aria-label="ピクチャーインピクチャー"
+                >
                   <span class="material-icons-round" aria-hidden="true">
                     picture_in_picture
                   </span>
