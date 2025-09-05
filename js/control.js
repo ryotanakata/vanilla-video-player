@@ -1,17 +1,17 @@
 import { getDataDom } from "https://cdn.jsdelivr.net/npm/@datadomjs/datadom@1.0.2/dist/index.js";
 
 // ----------------------------------------------------------
-// ユーティリティ関数
+// ユーティリティ
 // ----------------------------------------------------------
 
-// ビデオのタイトルを取得する関数
+// ビデオのタイトルを取得
 const getVideoTitle = (url) => {
   const filename = decodeURIComponent(url.split("/").pop());
 
   return filename.replace(/\.[^/.]+$/, "");
 };
 
-// 時間フォーマット用の関数
+// 時間フォーマット
 const formatTime = (time) => {
   const minutes = Math.floor(time / 60)
     .toString()
@@ -27,7 +27,7 @@ const formatTime = (time) => {
 // 基本的なビデオ操作
 // ----------------------------------------------------------
 
-// ビデオの再生状態をトグルする関数
+// ビデオの再生状態をトグル
 const togglePlayPause = async () => {
   try {
     const { video } = getDataDom({
@@ -41,7 +41,7 @@ const togglePlayPause = async () => {
   }
 };
 
-// ビデオを巻き戻す関数
+// ビデオを巻き戻す
 const rewindVideo = () => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -52,7 +52,7 @@ const rewindVideo = () => {
   }
 };
 
-// ビデオを早送りする関数
+// ビデオを早送り
 const forwardVideo = () => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -63,7 +63,7 @@ const forwardVideo = () => {
   }
 };
 
-// ビデオのミュート/ミュート解除をトグルする関数
+// ビデオのミュート/ミュート解除をトグル
 const toggleMuteUnmute = () => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -75,7 +75,7 @@ const toggleMuteUnmute = () => {
   }
 };
 
-// ビデオのループ再生オン/オフをトグルする関数
+// ビデオのループ再生オン/オフをトグル
 const toggleLoopUnloop = () => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -91,7 +91,7 @@ const toggleLoopUnloop = () => {
 // ビデオ操作オプション
 // ----------------------------------------------------------
 
-// ビデオを全画面表示にする関数
+// ビデオを全画面表示
 const fullScreenVideo = async () => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -102,7 +102,7 @@ const fullScreenVideo = async () => {
   }
 };
 
-// ピクチャーインピクチャーを有効にする関数
+// ピクチャーインピクチャーを有効化
 const pictureInPictureVideo = async () => {
   try {
     if (!document.pictureInPictureEnabled) return;
@@ -119,7 +119,7 @@ const pictureInPictureVideo = async () => {
 // 再生速度制御
 // ----------------------------------------------------------
 
-// ビデオの再生速度を変更する関数
+// ビデオの再生速度を変更
 const changeSpeedVideo = ({ target }) => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -130,7 +130,7 @@ const changeSpeedVideo = ({ target }) => {
   }
 };
 
-// ビデオの再生速度を上げる関数
+// ビデオの再生速度を上げる
 const upSpeedVideo = () => {
   try {
     const { video, speedSelect } = getDataDom({
@@ -147,7 +147,7 @@ const upSpeedVideo = () => {
   }
 };
 
-// ビデオの再生速度を下げる関数
+// ビデオの再生速度を下げる
 const downSpeedVideo = () => {
   try {
     const { video, speedSelect } = getDataDom({
@@ -168,7 +168,7 @@ const downSpeedVideo = () => {
 // 音量制御
 // ----------------------------------------------------------
 
-// ビデオの音量を制御する関数
+// ビデオの音量を制御
 const changeVolume = ({ target }) => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -179,7 +179,7 @@ const changeVolume = ({ target }) => {
   }
 };
 
-// ビデオの音量を上げる関数
+// ビデオの音量を上げる
 const upVolume = () => {
   try {
     const { video, volumeRange } = getDataDom({
@@ -194,7 +194,7 @@ const upVolume = () => {
   }
 };
 
-// ビデオの音量を下げる関数
+// ビデオの音量を下げる
 const downVolume = () => {
   try {
     const { video, volumeRange } = getDataDom({
@@ -213,7 +213,7 @@ const downVolume = () => {
 // 進行状況制御
 // ----------------------------------------------------------
 
-// ビデオの進行状況を制御する関数
+// ビデオの進行状況を制御
 const changeProgress = ({ target }) => {
   try {
     const { video } = getDataDom({ video: "ビデオ要素" });
@@ -226,7 +226,7 @@ const changeProgress = ({ target }) => {
   }
 };
 
-// プレビューキャプチャを更新する関数
+// プレビューキャプチャを更新
 const showPreviewCapture = (e) => {
   try {
     const { video, previewCapture, previewTime, progressRange } = getDataDom({
@@ -251,7 +251,7 @@ const showPreviewCapture = (e) => {
   }
 };
 
-// プレビューキャプチャを非表示にする関数
+// プレビューキャプチャを非表示化
 const hidePreviewCapture = () => {
   try {
     const { previewCapture } = getDataDom({
@@ -265,10 +265,10 @@ const hidePreviewCapture = () => {
 };
 
 // ----------------------------------------------------------
-// 状態更新関数
+// 状態更新
 // ----------------------------------------------------------
 
-// 再生速度のセレクトボックスを更新する関数
+// 再生速度のセレクトボックスを更新
 const updateSpeedSelect = () => {
   try {
     const { video, speedSelect } = getDataDom({
@@ -285,7 +285,7 @@ const updateSpeedSelect = () => {
   }
 };
 
-// 再生プログレスバーを更新する関数
+// 再生プログレスバーを更新
 const updateProgressBar = () => {
   try {
     const { video, progressRange } = getDataDom({
@@ -303,7 +303,7 @@ const updateProgressBar = () => {
   }
 };
 
-// 再生時間を更新する関数
+// 再生時間を更新
 const updateDurationTime = () => {
   try {
     const { video, durationSpan } = getDataDom({
@@ -319,7 +319,7 @@ const updateDurationTime = () => {
   }
 };
 
-// 再生時間を更新する関数
+// 再生時間を更新
 const updateProgressTime = () => {
   try {
     const { video, currentTimeSpan } = getDataDom({
@@ -335,7 +335,7 @@ const updateProgressTime = () => {
   }
 };
 
-// ビデオの再生状態をボタンに反映する関数
+// ビデオの再生状態をボタンに反映
 const updatePlayPauseState = () => {
   try {
     const { video, playPauseButton } = getDataDom({
@@ -359,7 +359,7 @@ const updatePlayPauseState = () => {
   }
 };
 
-// 音量調節レンジの状態を更新する関数
+// 音量調節レンジの状態を更新
 const updateVolumeRange = () => {
   try {
     const { volumeRange } = getDataDom({ volumeRange: "音量調節レンジ" });
@@ -371,7 +371,7 @@ const updateVolumeRange = () => {
   }
 };
 
-// ビデオのループ状態をボタンに反映する関数
+// ビデオのループ状態をボタンに反映
 const updateLoopUnloopState = () => {
   try {
     const { video, loopButton } = getDataDom({
@@ -392,7 +392,7 @@ const updateLoopUnloopState = () => {
   }
 };
 
-// ビデオのミュート状態をボタンに反映する関数
+// ビデオのミュート状態をボタンに反映
 const updateMuteUnmuteState = () => {
   try {
     const { video, muteButton } = getDataDom({
