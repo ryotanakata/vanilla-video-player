@@ -46,58 +46,46 @@ const elements = {
 };
 
 try {
-  const {
-    video,
-    title,
-    playPauseButton,
-    rewindButton,
-    forwardButton,
-    muteButton,
-    loopButton,
-    fullScreenButton,
-    pictureInPictureButton,
-    speedSelect,
-    progressRange,
-    volumeRange,
-    previewCapture,
-  } = getDataDom(elements);
+  const el = getDataDom(elements);
 
   // プレビューキャプチャの初期化
-  previewCapture.src = video.src;
+  el.previewCapture.src = el.video.src;
 
   // ブラウザ非対応機能のボタン非表示
-  pictureInPictureButton.hidden = !document.pictureInPictureEnabled;
-  fullScreenButton.hidden = !document.fullscreenEnabled;
+  el.pictureInPictureButton.hidden = !document.pictureInPictureEnabled;
+  el.fullScreenButton.hidden = !document.fullscreenEnabled;
 
   // メタデータ関連
-  title.textContent = getVideoTitle(video.src);
-  video.addEventListener("loadedmetadata", updateDurationTime, { once: true });
-  video.readyState >= HTMLMediaElement.HAVE_METADATA && updateDurationTime();
+  el.title.textContent = getVideoTitle(el.video.src);
+  el.video.addEventListener("loadedmetadata", updateDurationTime, {
+    once: true,
+  });
+  el.video.readyState >= HTMLMediaElement.HAVE_METADATA && updateDurationTime();
 
   // 再生状態の更新
-  video.addEventListener("timeupdate", updateProgressBar);
-  video.addEventListener("timeupdate", updateProgressTime);
-  video.addEventListener("play", updatePlayPauseState);
-  video.addEventListener("pause", updatePlayPauseState);
-  video.addEventListener("volumechange", updateVolumeRange);
-  video.addEventListener("mutedchange", updateMuteUnmuteState);
-  video.addEventListener("loopchange", updateLoopUnloopState);
-  video.addEventListener("ratechange", updateSpeedSelect);
+  el.video.addEventListener("timeupdate", updateProgressBar);
+  el.video.addEventListener("timeupdate", updateProgressTime);
+  el.video.addEventListener("play", updatePlayPauseState);
+  el.video.addEventListener("pause", updatePlayPauseState);
+  el.video.addEventListener("volumechange", updateVolumeRange);
+  el.video.addEventListener("mutedchange", updateMuteUnmuteState);
+  el.video.addEventListener("loopchange", updateLoopUnloopState);
+  el.video.addEventListener("ratechange", updateSpeedSelect);
 
   // ユーザー操作
-  playPauseButton.addEventListener("click", togglePlayPause);
-  rewindButton.addEventListener("click", rewindVideo);
-  forwardButton.addEventListener("click", forwardVideo);
-  muteButton.addEventListener("click", toggleMuteUnmute);
-  loopButton.addEventListener("click", toggleLoopUnloop);
-  fullScreenButton.addEventListener("click", fullScreenVideo);
-  pictureInPictureButton.addEventListener("click", pictureInPictureVideo);
-  speedSelect.addEventListener("change", changeSpeedVideo);
-  progressRange.addEventListener("input", changeProgress);
-  progressRange.addEventListener("change", changeProgress);
-  progressRange.addEventListener("mousemove", showPreviewCapture);
-  progressRange.addEventListener("mouseleave", hidePreviewCapture);
-  volumeRange.addEventListener("input", changeVolume);
+  el.playPauseButton.addEventListener("click", togglePlayPause);
+  el.rewindButton.addEventListener("click", rewindVideo);
+  el.forwardButton.addEventListener("click", forwardVideo);
+  el.muteButton.addEventListener("click", toggleMuteUnmute);
+  el.loopButton.addEventListener("click", toggleLoopUnloop);
+  el.fullScreenButton.addEventListener("click", fullScreenVideo);
+  el.pictureInPictureButton.addEventListener("click", pictureInPictureVideo);
+  el.speedSelect.addEventListener("change", changeSpeedVideo);
+  el.progressRange.addEventListener("input", changeProgress);
+  el.progressRange.addEventListener("change", changeProgress);
+  el.progressRange.addEventListener("mousemove", showPreviewCapture);
+  el.progressRange.addEventListener("mouseleave", hidePreviewCapture);
+  el.volumeRange.addEventListener("input", changeVolume);
 
   // キーボード操作
   document.addEventListener("keydown", (e) => {
